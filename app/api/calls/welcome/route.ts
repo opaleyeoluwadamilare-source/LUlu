@@ -226,6 +226,7 @@ This call is SHORT. Show you see their life. Give one insight. Wrap up. Don't ov
       return NextResponse.json({
         success: false,
         error: 'Call failed',
+        vapiError: errorText,
         fallback: 'SMS would be sent',
         smsMessage: smsFallback
       })
