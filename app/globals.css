@@ -1,0 +1,333 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  /* add custom gradient and accent tokens for Delulu Daily design */
+  --gradient-hero: linear-gradient(
+    135deg,
+    #a67c52 0%,
+    #b8905f 15%,
+    #c4956f 25%,
+    #b07a58 35%,
+    #9a6a6a 45%,
+    #7d5f95 55%,
+    #5f4fa8 70%,
+    #3d4a8f 85%,
+    #1e3d7a 100%
+  );
+  --gradient-header: linear-gradient(to right, rgb(37 99 235 / 0.1), rgb(147 51 234 / 0.1));
+  --gradient-primary: linear-gradient(to right, rgb(37 99 235), rgb(147 51 234));
+  --accent-success: rgb(34 197 94);
+  --accent-primary-blue: rgb(59 130 246);
+  --accent-primary-purple: rgb(168 85 247);
+  --accent-gold: #FFD700;
+  --accent-warm-orange: #FFA500;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: white;
+  }
+}
+
+/* Add smooth scrolling behavior and hide scrollbar */
+html {
+  background: white;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /* Support for iOS safe area insets - white background behind status bar */
+  padding-top: env(safe-area-inset-top, 0px);
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  /* Ensure white background extends to all edges */
+  min-height: 100vh;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for body as well */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  /* Ensure white background extends to safe areas */
+  background: white !important;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Prevent rubber band effect on iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Prevent overscroll bounce on iOS */
+html, body {
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure white background in safe area (status bar area) - iOS */
+@supports (padding: env(safe-area-inset-top)) {
+  html {
+    background: white;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top, 0px);
+    background: white;
+    z-index: 9999;
+    pointer-events: none;
+  }
+}
+
+/* Prevent overscroll at bottom */
+main {
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+  position: relative;
+}
+
+/* Smooth header transitions */
+header {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Floating Get Started button animations */
+button[class*="fixed"][class*="top-4"][class*="right-4"] {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Hide scrollbars for container scroll animation */
+/* Hide scrollbars globally */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+[class*="container-scroll"]::-webkit-scrollbar,
+[class*="overflow-y-auto"]::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+[class*="container-scroll"] {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Signup page animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Shimmer animation for image loading */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+    .animate-shimmer {
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* Mobile Glass Menu - Enhanced for all browsers */
+    .mobile-glass-menu {
+      position: relative;
+    }
+
+    /* Fallback for browsers without backdrop-filter support */
+    @supports not (backdrop-filter: blur(1px)) {
+      .mobile-glass-menu {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.95) 0%,
+          rgba(255, 255, 255, 0.92) 20%,
+          rgba(255, 255, 255, 0.88) 40%,
+          rgba(255, 255, 255, 0.85) 60%,
+          rgba(255, 255, 255, 0.82) 80%,
+          rgba(255, 255, 255, 0.8) 100%
+        ) !important;
+      }
+    }
+
+    /* Enhanced glass effect for supported browsers */
+    @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+      .mobile-glass-menu {
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.42) 0%,
+          rgba(255, 255, 255, 0.35) 20%,
+          rgba(255, 255, 255, 0.28) 40%,
+          rgba(255, 255, 255, 0.22) 60%,
+          rgba(255, 255, 255, 0.18) 80%,
+          rgba(255, 255, 255, 0.15) 100%
+        ) !important;
+      }
+    }
+
+    /* iOS Safari specific enhancements */
+    @supports (-webkit-touch-callout: none) {
+      .mobile-glass-menu {
+        -webkit-backdrop-filter: blur(32px) saturate(200%);
+        backdrop-filter: blur(32px) saturate(200%);
+      }
+    }

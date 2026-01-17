@@ -1,0 +1,38 @@
+[1mdiff --git a/app/globals.css b/app/globals.css[m
+[1mindex b12ece1..7b9689c 100644[m
+[1m--- a/app/globals.css[m
+[1m+++ b/app/globals.css[m
+[36m@@ -139,23 +139,8 @@[m
+   * {[m
+     @apply border-border outline-ring/50;[m
+   }[m
+[31m-  html {[m
+[31m-    background: var(--gradient-hero);[m
+[31m-    background-attachment: fixed;[m
+[31m-    min-height: 100vh;[m
+[31m-    min-height: -webkit-fill-available;[m
+[31m-  }[m
+   body {[m
+[31m-    @apply text-foreground;[m
+[31m-    background: var(--gradient-hero);[m
+[31m-    background-attachment: fixed;[m
+[31m-    min-height: 100vh;[m
+[31m-    min-height: -webkit-fill-available;[m
+[31m-    /* Prevent overscroll bounce on iOS */[m
+[31m-    overscroll-behavior-y: none;[m
+[31m-    /* Safe area insets for iPhone */[m
+[31m-    padding-top: env(safe-area-inset-top);[m
+[31m-    padding-bottom: env(safe-area-inset-bottom);[m
+[32m+[m[32m    @apply bg-background text-foreground;[m
+   }[m
+ }[m
+ [m
+[36m@@ -164,8 +149,6 @@[m [mhtml {[m
+   scroll-behavior: smooth;[m
+   -ms-overflow-style: none;  /* IE and Edge */[m
+   scrollbar-width: none;  /* Firefox */[m
+[31m-  /* Prevent overscroll bounce on iOS */[m
+[31m-  overscroll-behavior-y: none;[m
+ }[m
+ [m
+ /* Hide scrollbar for Chrome, Safari and Opera */[m
