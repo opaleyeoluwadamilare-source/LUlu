@@ -240,7 +240,11 @@ export default function SignupPage() {
 
   // Handle Step 4 completion - trigger call immediately when user clicks "I'm ready"
   const handlePhoneComplete = async () => {
+    console.log("handlePhoneComplete called")
+    console.log("Phone:", formData.phone, "Validation:", phoneValidation.isValid)
+
     if (!formData.phone || phoneValidation.isValid === false) {
+      console.log("Validation failed - returning early")
       setErrors({ phone: "I need a phone number to reach you!" })
       return
     }
@@ -258,8 +262,10 @@ export default function SignupPage() {
     // Navigate to Step 5 first
     handleNext()
 
+    console.log("About to call triggerWelcomeCall")
     // Trigger Vapi call immediately
-    triggerWelcomeCall()
+    await triggerWelcomeCall()
+    console.log("triggerWelcomeCall finished")
   }
 
   // Handle final confirmation - just navigate to thank-you (call already triggered)
