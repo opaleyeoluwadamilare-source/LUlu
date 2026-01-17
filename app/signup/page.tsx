@@ -200,6 +200,7 @@ export default function SignupPage() {
 
   // Trigger welcome call via Vapi
   const triggerWelcomeCall = async () => {
+    console.log("triggerWelcomeCall called, callTriggered:", callTriggered)
     if (callTriggered) return
     setCallTriggered(true)
 
@@ -211,6 +212,8 @@ export default function SignupPage() {
       if (formData.connections.calendar) connectedServices.push(`calendar:${formData.connections.calendar}`)
       if (formData.connections.health) connectedServices.push(`health:${formData.connections.health}`)
       if (formData.connections.tasks) connectedServices.push(`tasks:${formData.connections.tasks}`)
+
+      console.log("Calling /api/calls/welcome with:", { name: formData.name, phone: cleanedPhone })
 
       // Call the welcome call API
       const response = await fetch("/api/calls/welcome", {
@@ -224,8 +227,11 @@ export default function SignupPage() {
         })
       })
 
+      const data = await response.json()
+      console.log("Welcome call response:", data)
+
       if (!response.ok) {
-        console.error("Failed to trigger welcome call")
+        console.error("Failed to trigger welcome call:", data)
       }
     } catch (error) {
       console.error("Error triggering welcome call:", error)
